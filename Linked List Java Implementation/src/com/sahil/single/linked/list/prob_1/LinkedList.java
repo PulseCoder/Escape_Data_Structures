@@ -1,5 +1,9 @@
 package com.sahil.single.linked.list.prob_1;
 
+//https://www.geeksforgeeks.org/reverse-a-linked-list/
+
+import java.util.Stack;
+
 class Node{
 	int value;
 	Node next;
@@ -25,6 +29,21 @@ public class LinkedList {
 		}
 	}
 	
+	public Stack<Integer> storeLinkedListInStack(Stack<Integer> stk,Node head) {
+		while(head!=null) {
+			stk.push(head.value);
+			head = head.next;
+		}
+		return stk;
+	}
+	
+	public void reverseLinkedList(Stack<Integer> res,Node head) {
+		while(head!=null) {
+			head.value = res.pop();
+			head= head.next;
+		}
+	}
+	
 	public static void main(String[] args) {
 		LinkedList list = new LinkedList();
 		
@@ -40,6 +59,11 @@ public class LinkedList {
 		fourth.next 	= fifth;
 		
 		list.traverseLinkedList(list.head);
+		System.out.println();
+		Stack<Integer> stk = new Stack<Integer>();
+		Stack<Integer> result = list.storeLinkedListInStack(stk,list.head);
 		
+		list.reverseLinkedList(result,list.head);
+		list.traverseLinkedList(list.head);
 	}
 }
