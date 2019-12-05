@@ -1,5 +1,7 @@
 package com.sahil.single.linked.list.prob_3;
 
+// Try a way out using the Recursive method.
+
 class Node{
 	int value;
 	Node next;
